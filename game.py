@@ -4,6 +4,8 @@ import pygame
 from constants import *
 
 from time import time, sleep
+import sys
+from math import sin
 
 class Game(object):
 
@@ -34,6 +36,24 @@ class Game(object):
 
         for item in by_char:
             char = item.split("\n")[0]
+
+            if char == "Prompt":
+
+                by_option = item.split("/")[1:]
+                options = []
+                links = []
+
+                for opt in by_option:
+
+                    split = opt.split("\n")
+                    options.append(split[0])
+                    links.append(split[1])
+
+                line_to_add = Prompt(char, "Default", "Add links.")
+                line_to_add.set_options(options)
+                line_to_add.set_links(links)
+                scene.add_lines([line_to_add])
+                continue
 
             by_mood = (item.split("/"))[1:]
 
@@ -68,6 +88,8 @@ class Game(object):
             backdrop = pygame.transform.scale(backdrop, (80, 45))
             self.bkdrops[item] = pygame.transform.scale(backdrop, GAME_SIZE)
 
+        self.lockout = False
+
         while True:
 
             now = time()
@@ -84,12 +106,18 @@ class Game(object):
                     script = self.parse_script()
                 line = script.lines[0]
 
+
             pygame.event.pump()
             pressed = pygame.event.get(pygame.KEYDOWN)
             if len(pressed):
                 keys = [item.key for item in pressed]
-                if 13 in keys:
-                    script.go_to_next()
+                if 27 in keys:
+                    self.close_game()
+
+                if not self.lockout:
+                    if 13 in keys or 275 in keys:
+                        script.go_to_next()
+
 
             self.screen.blit(background, (0, 0))
             line.update(dt)
@@ -98,6 +126,11 @@ class Game(object):
             scaled_down = pygame.transform.scale(self.screen, self.res)
             self.display_screen.blit(scaled_down, (0, 0))
             pygame.display.flip()
+
+    def close_game(self):
+        pygame.display.quit()
+        pygame.quit()
+        sys.exit()
 
 
 
@@ -115,6 +148,8 @@ class Scene(object):
         self.lines = self.lines[1:]
         if self.char_has_changed():
             self.lines[0].character_fade_in()
+        else:
+            self.lines[0].bounce_mag = 15
 
     def last_line(self):
         return self.past_lines[-1]
@@ -131,14 +166,12 @@ class Scene(object):
         return True
 
 
-
 class Line(object):
 
     def __init__(self, char, expr, text):
         """ Char says text in expr way """
         self.char = char
         self.expr = expr
-        print(text)
         self.text = text.strip(" ").strip('"').decode()
         self.characters_shown = 0
         self.time = 0
@@ -147,11 +180,16 @@ class Line(object):
         self.char_yoff = 0
         self.target_opacity = 255
         self.target_yoff = 0
+        self.text_abs_yoff = 0
+
+        self.bounce_mag = 0
+        self.bounce_freq = 6.28*6.0
 
     def __repr__(self):
         return ("%s (%s): %s" % (self.char, self.expr, self.text))
 
     def draw(self, screen):
+        self.text_abs_yoff = 0
         self.draw_character(screen)
         self.draw_text_box(screen)
         self.draw_text(screen)
@@ -171,6 +209,10 @@ class Line(object):
             self.char_opacity = min(self.target_opacity, self.char_opacity + fade_speed*dt)
         else:
             self.char_opacity = max(self.target_opacity, self.char_opacity - fade_speed*dt)
+
+        self.bounce_mag *= 0.02**dt
+        if self.bounce_mag < 2:
+            self.bounce_mag = 0
 
 
     def character_fade_in(self):
@@ -194,7 +236,8 @@ class Line(object):
         img.set_colorkey(trans_color)
         img.set_alpha(self.char_opacity)
 
-        screen.blit(img, (CHAR_POS[0], CHAR_POS[1] + self.char_yoff))
+        bounce_off = self.bounce_mag * sin(time()*self.bounce_freq)
+        screen.blit(img, (CHAR_POS[0], CHAR_POS[1] + self.char_yoff + bounce_off))
 
     def draw_text_box(self, screen):
 
@@ -202,7 +245,10 @@ class Line(object):
         surf.set_alpha(140)
         screen.blit(surf, TEXT_BOX_POS)
 
-    def draw_text(self, screen):
+    def draw_text(self, screen, instant = False):
+
+        if instant:
+            self.time = 999
 
         font = pygame.font.SysFont("Tahoma", 40)
         self.characters_shown = int(self.time*self.chars_per_second)
@@ -244,8 +290,30 @@ class Line(object):
 
         for i, item in enumerate(text_renders):
             offset = i*TEXT_SPACING_Y
-            screen.blit(item, (TEXT_POS[0], TEXT_POS[1] + offset))
+            screen.blit(item, (TEXT_POS[0], TEXT_POS[1] + offset + self.text_abs_yoff))
 
+class Prompt(Line):
+    def __init__(self, char, expr, text):
+        Line.__init__(self, char, expr, text)
+
+    def set_options(self, options):
+        self.options = options
+
+    def set_links(self, links):
+        self.links = links
+
+    def get_link(self, option_idx):
+        return self.links[option_idx]
+
+    def draw(self, screen):
+        text_spacing = 100
+        self.text_abs_yoff = int(TEXT_HEIGHT/2 - text_spacing/2*len(self.options)) + 25
+        self.draw_text_box(screen)
+        for item in self.options:
+            self.text = item
+            self.draw_text(screen, instant = True)
+            self.text_abs_yoff += text_spacing
 
 if __name__ == '__main__':
+    a = Prompt("Benethir", "Angry", "Hello")
     a = Game()
