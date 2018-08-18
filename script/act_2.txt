@@ -22,6 +22,6 @@ Ahead, you can see a small group of bandits hiding behind the trees and bushes t
 
 #Prompt
 /Warn Benethir of the danger!
-scene_2_warned.txt
+act_2_warned.txt
 /Do nothing
-Scene_2_unwarned.txt
+act_2_unwarned.txt

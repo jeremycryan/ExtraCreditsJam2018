@@ -1,0 +1,15 @@
+#Narrator
+/Default
+The first arrow whizzes toward Benethir. He catches it in his fist. He cuts the second out of the air with his sword. He grins as he advances on the third bandit, who had been unlucky enough to jump into the middle of the road.
+
+#Benethir
+/Default
+You thought you could challenge me? Fool!
+
+#Narrator
+/Default
+He runs forward and makes short work of the bandit. The road is quiet once more. Benethir gives you a respectful nod.
+
+#GoTo
+/Default
+act_3.txt

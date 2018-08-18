@@ -22,7 +22,7 @@ class Game(object):
         self.main()
 
     def prompt_resolution(self):
-        resolution = (1600, 900)
+        resolution = (800, 450)
         return resolution
 
     def scene(self):
@@ -128,6 +128,10 @@ class Game(object):
 
                 if not self.lockout:
                     if 13 in keys or 275 in keys:
+                        if line.is_prompt:
+                            self.start_file = line.get_link(0)
+                            script = self.parse_script()
+                            continue
                         script.go_to_next()
 
 
@@ -197,8 +201,14 @@ class Line(object):
         self.bounce_mag = 0
         self.bounce_freq = 6.28*6.0
 
+        self.is_prompt = False
+
     def __repr__(self):
         return ("%s (%s): %s" % (self.char, self.expr, self.text))
+
+    def has_expired(self):
+        # normal lines can't expire
+        return False
 
     def draw(self, screen):
         self.text_abs_yoff = 0
@@ -235,8 +245,12 @@ class Line(object):
         self.char_yoff = CHAR_FADE_IN_OFFSET
         self.target_yoff = 0
 
-    def draw_character(self, screen):
-        expressions = CHAR_DICT[self.char]
+    def draw_character(self, screen, force_char = False):
+        if force_char:
+            char = force_char
+        else:
+            char = self.char
+        expressions = CHAR_DICT[char]
         try:
             img = expressions[self.expr]
         except:
@@ -255,7 +269,7 @@ class Line(object):
     def draw_text_box(self, screen):
 
         surf = pygame.Surface((TEXT_BOX_WIDTH, TEXT_BOX_HEIGHT))
-        surf.set_alpha(140)
+        surf.set_alpha(120)
         screen.blit(surf, TEXT_BOX_POS)
 
     def draw_name(self, screen):
@@ -263,14 +277,20 @@ class Line(object):
         if self.char in DO_NOT_SHOW_NAME:
             return
 
-        font = pygame.font.SysFont("Tahoma", 60)
+        xoff = 100
+
+        font = pygame.font.SysFont("Arial", 60, bold=True)
         text = self.char
-        render = font.render(self.char, 1, (255, 255, 255))
+        render = font.render(self.char.upper(), 1, (255, 255, 255))
+        box = pygame.Surface((render.get_width()+NAME_BORDER_X*2 + xoff - TEXT_POS[0] + TEXT_BORDER_X, render.get_height()+NAME_BORDER_Y))
+        box.fill((0, 0, 0))
+        box.blit(render, (NAME_BORDER_X+xoff-TEXT_BORDER_X, NAME_BORDER_Y))
+        box.set_alpha(120)
 
-        xpos = int(GAME_SIZE[0] - render.get_width()/2 - 300)
-        ypos = int(TEXT_POS[1] - 100)
+        xpos = TEXT_POS[0] - TEXT_BORDER_X
+        ypos = int(TEXT_POS[1] - box.get_height() - TEXT_BORDER_TOP)
 
-        screen.blit(render, (xpos, ypos))
+        screen.blit(box, (xpos, ypos))
 
 
     def draw_text(self, screen, instant = False):
@@ -323,6 +343,20 @@ class Line(object):
 class Prompt(Line):
     def __init__(self, char, expr, text):
         Line.__init__(self, char, expr, text)
+        self.time_started = False
+        self.start_time = 0
+        self.reaction_time = 8.0
+        self.is_prompt = True
+
+    def has_expired(self):
+        if time() - self.start_time >= self.reaction_time + 0.1:
+            return True
+        return False
+
+    def start_time_func(self):
+        if not self.time_started:
+            self.time_started = True
+            self.start_time = time()
 
     def set_options(self, options):
         self.options = options
@@ -334,6 +368,9 @@ class Prompt(Line):
         return self.links[option_idx]
 
     def draw(self, screen):
+        self.draw_character(screen, force_char = "Sprite")
+
+        self.start_time_func()
         text_spacing = 100
         self.text_abs_yoff = int(TEXT_HEIGHT/2 - text_spacing/2*len(self.options)) + 25
         self.draw_text_box(screen)
@@ -341,6 +378,48 @@ class Prompt(Line):
             self.text = item
             self.draw_text(screen, instant = True)
             self.text_abs_yoff += text_spacing
+
+        self.draw_time_bar(screen)
+
+    def draw_text(self, screen, instant = True):
+
+        do_font = pygame.font.SysFont("Tahoma", 50)
+        dont_font = pygame.font.SysFont("Tahoma", 30)
+
+        do = do_font.render(self.options[0], 1, (255, 255, 255))
+        dont = dont_font.render("OR "+self.options[1].upper(), 1, (200, 200, 200))
+
+        do_x = GAME_SIZE[0]/2 - do.get_width()/2
+        do_y = TEXT_POS[1] + 50
+        screen.blit(do, (do_x, do_y))
+
+        dont_x = GAME_SIZE[0]/2 - dont.get_width()/2
+        dont_y = TEXT_POS[1] + 120
+        screen.blit(dont, (dont_x, dont_y))
+
+    def draw_time_bar(self, screen):
+        max_width = 1600
+        height = 8
+
+        time_elapsed = min(self.reaction_time, time() - self.start_time)
+        prop_left = (self.reaction_time-time_elapsed)/self.reaction_time
+        cur_width = max_width*prop_left**1.6
+
+        if cur_width < 1:
+            return
+
+        bar = pygame.Surface((cur_width, height))
+        prop_done = 1-prop_left
+        r = 200
+        b = 200 - 100*prop_done
+        g = 200 - 100*prop_done
+        bar.fill((int(r), int(g), int(b)))
+
+        xpos = GAME_SIZE[0]/2 - int(cur_width/2)
+        ypos = TEXT_BOX_POS[1] + 30
+
+        screen.blit(bar, (xpos, ypos))
+
 
 if __name__ == '__main__':
     a = Prompt("Benethir", "Angry", "Hello")

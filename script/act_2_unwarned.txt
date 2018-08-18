@@ -1,0 +1,20 @@
+#Narrator
+/Default
+The first arrow whizzes toward the unprepared Benethir. It sinks deep into his shoulder. Enraged, he rushes forward and the second arrow lands harmlessly in the dirt behind him.
+
+
+#Benethir
+/Default
+You’ll pay for that!
+
+#Narrator
+/Default
+The third and final bandit stands no chance against the warrior’s ferocious blade. The archers, seeing what’s become of their friend, flee while Benethir is distracted. Soon, the road falls quiet once more.
+
+#Benethir
+/Default
+[something rude]
+
+#GoTo
+/Default
+act_3.txt
