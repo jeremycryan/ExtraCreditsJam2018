@@ -6,14 +6,16 @@ import pygame
 ################## CHARACTERS AND POSES ##################
 ##########################################################
 
+DO_NOT_SHOW_NAME = ["Scene", "Prompt", "Narrator"]
 
-HERO_POSES = {"Default": "hero_default.png",
-    "Angry": "hero_angry.png",
-    "Sad": "hero_sad.png",
-    "Eager": "hero_eager.png",
-    "Annoyed": "hero_annoyed.png",
-    "More annoyed": "hero_more_annoyed.png",
-    "Defeated": "hero_defeated.png"}
+HERO_POSES = {"Default": "Knight-Default.png",
+    "Angry": "Knight-Angry.png",
+    "Sad": "Knight-sad.png",
+    "Eager": "Knight-eager.png",
+    "Annoyed": "Knight-Angry.png",
+    "More annoyed": "Knight-Angry.png",
+    "Defeated": "Knight-sad.png",
+    "Confident": "Knight-Confident.png"}
 
 WIZARD_POSES = {"Default": "wizard_default.png",
     "Touched": "wizard_touched.png",
@@ -63,6 +65,7 @@ READING_SPEED = 30
 ###################### CHARACTER RENDER #################
 #########################################################
 
-CHAR_POS = (200, 170)
+CHAR_POS = (100, 50)
 CHAR_FADE_IN_TIME = 0.5
 CHAR_FADE_IN_OFFSET = 50
+CHAR_RECT = (int(480*1.5), int(720*1.5))

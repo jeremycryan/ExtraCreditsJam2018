@@ -36,7 +36,7 @@ Hiens?
 Okay Hiens, I'll be honest. I could handle this mission solo style, but you are my friend, it'll be that much more enjoyable to go on this mission with someone I trust. Put that spoon away and let's go.
 
 #Hiens
-/touched
+/Touched
 Oh... I'm touched.
 /Default
 But I won't go.
@@ -46,7 +46,7 @@ But I won't go.
 Fine Hiens, be that way!
 
 #Hiens
-/Hands Raised
+/Hands raised
 Hold on, hold on. Let me get you something.
 /Default
 Take this with you. I'm far to busy to assist in person, but this tiny creature can serve as a guide. This sprite can provide useful tips and can aid you in variety of minor ways.
@@ -64,7 +64,7 @@ Take this with you. I'm far to busy to assist in person, but this tiny creature 
 To be honest, it might not be very helpful but at least it'll keep you company.
 
 #Benethir
-/Annoyed
+/Angry
 Err... Well thanks... I'll take this thing along with me, but when I'm in the grips of battle and this whatever you called it doesn't help, I'll be thinking of you.
 /Eager
 Come little fellah, let's go.

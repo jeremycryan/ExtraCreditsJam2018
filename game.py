@@ -22,7 +22,7 @@ class Game(object):
         self.main()
 
     def prompt_resolution(self):
-        resolution = (1200, 675)
+        resolution = (1600, 900)
         return resolution
 
     def scene(self):
@@ -88,6 +88,18 @@ class Game(object):
             backdrop = pygame.transform.scale(backdrop, (80, 45))
             self.bkdrops[item] = pygame.transform.scale(backdrop, GAME_SIZE)
 
+        for character in CHAR_DICT:
+            pose_dict = CHAR_DICT[character]
+            for pose in pose_dict:
+                image_path = pose_dict[pose]
+                try:
+                    new_img = pygame.image.load("images/"+image_path)
+                    new_img = pygame.transform.scale(new_img, CHAR_RECT)
+                except:
+                    new_img = pygame.Surface(CHAR_RECT)
+                    new_img.fill((200, 200, 90))
+                pose_dict[pose] = new_img
+
         self.lockout = False
 
         while True:
@@ -149,7 +161,7 @@ class Scene(object):
         if self.char_has_changed():
             self.lines[0].character_fade_in()
         else:
-            self.lines[0].bounce_mag = 15
+            self.lines[0].bounce_mag = 8
 
     def last_line(self):
         return self.past_lines[-1]
@@ -193,6 +205,7 @@ class Line(object):
         self.draw_character(screen)
         self.draw_text_box(screen)
         self.draw_text(screen)
+        self.draw_name(screen)
 
     def update(self, dt):
         self.time += dt
@@ -224,11 +237,11 @@ class Line(object):
 
     def draw_character(self, screen):
         expressions = CHAR_DICT[self.char]
-        correct_expression = expressions[self.expr.lower().capitalize()]
         try:
-            img = pygame.image.load("images/" + correct_expression)
+            img = expressions[self.expr]
         except:
-            img = pygame.image.load("images/hero_angry.png")
+            img = pygame.Surface(CHAR_RECT)
+            img.fill((230, 230, 90))
 
         #img.set_colorkey((0, 255, 0))
         img = img.convert()
@@ -244,6 +257,21 @@ class Line(object):
         surf = pygame.Surface((TEXT_BOX_WIDTH, TEXT_BOX_HEIGHT))
         surf.set_alpha(140)
         screen.blit(surf, TEXT_BOX_POS)
+
+    def draw_name(self, screen):
+
+        if self.char in DO_NOT_SHOW_NAME:
+            return
+
+        font = pygame.font.SysFont("Tahoma", 60)
+        text = self.char
+        render = font.render(self.char, 1, (255, 255, 255))
+
+        xpos = int(GAME_SIZE[0] - render.get_width()/2 - 300)
+        ypos = int(TEXT_POS[1] - 100)
+
+        screen.blit(render, (xpos, ypos))
+
 
     def draw_text(self, screen, instant = False):
 
