@@ -1,0 +1,22 @@
+#Hero
+/Default
+Hello, I am the glorious hero of the story.
+I am still in my default pose, but this is a new line of dialogue.
+/Sad
+I am sad now.
+
+#Narrator
+/Default
+The hero walks in all swiggity.
+
+#Benethor
+/Default
+Greetings, hero!
+/Touched
+We're making a game!
+
+#Prompt
+/Warn the wizard of the approaching dunce
+scene_1_warned.txt
+/Do nothing
+scene_1_unwarned.txt
