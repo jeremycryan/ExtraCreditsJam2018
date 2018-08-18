@@ -17,9 +17,11 @@ HERO_POSES = {"Default": "Knight-Default.png",
     "Defeated": "Knight-sad.png",
     "Confident": "Knight-Confident.png"}
 
-WIZARD_POSES = {"Default": "wizard_default.png",
-    "Touched": "wizard_touched.png",
-    "Hands raised": "wizard_hand_raised.png"}
+WIZARD_POSES = {"Default": "Wizard-Default.png",
+    "Touched": "Wizard-Touched.png",
+    "Hands raised": "Wizard-Hands Rasied.png",
+    "Busy": "Wizard-Busy.png",
+    "Angry": "Wizard-Angry.png"}
 
 SPRITE_POSES = {"Default": "sprite_default.png"}
 

@@ -85,7 +85,7 @@ class Game(object):
         self.bkdrops = {}
         for item in BACKGROUNDS:
             backdrop = pygame.image.load("images/"+BACKGROUNDS[item])
-            backdrop = pygame.transform.scale(backdrop, (80, 45))
+            backdrop = pygame.transform.scale(backdrop, (160, 90))
             self.bkdrops[item] = pygame.transform.scale(backdrop, GAME_SIZE)
 
         for character in CHAR_DICT:
@@ -108,7 +108,11 @@ class Game(object):
             dt = now - then
             then = now
 
+            if line.has_expired():
+                self.start_file = line.get_link(1)
+                script = self.parse_script()
             line = script.lines[0]
+
             while line.char in ["Scene", "GoTo"]:
                 if line.char == "Scene":
                     background = self.bkdrops[line.text]
@@ -133,7 +137,6 @@ class Game(object):
                             script = self.parse_script()
                             continue
                         script.go_to_next()
-
 
             self.screen.blit(background, (0, 0))
             line.update(dt)

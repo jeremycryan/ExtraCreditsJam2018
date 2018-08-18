@@ -10,14 +10,11 @@ Intro
 /Default
 ...
 
-#GoTo
-/Default
-act_2.txt
 
 #Benethir
 /Default
 "Knock, knock"
-"Yo Hiens!! Its me open the door."
+"Yo Hiens! Its me open the door."
 
 #Hiens
 /Default
