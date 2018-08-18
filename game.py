@@ -58,6 +58,15 @@ class Game(object):
 
         then = time()
         sleep(0.01)
+        background = pygame.Surface((1920, 1080))
+        background.fill((50, 50, 50))
+
+        line = script.lines[0]
+        self.bkdrops = {}
+        for item in BACKGROUNDS:
+            backdrop = pygame.image.load("images/"+BACKGROUNDS[item])
+            backdrop = pygame.transform.scale(backdrop, (80, 45))
+            self.bkdrops[item] = pygame.transform.scale(backdrop, GAME_SIZE)
 
         while True:
 
@@ -65,16 +74,24 @@ class Game(object):
             dt = now - then
             then = now
 
+            line = script.lines[0]
+            while line.char in ["Scene", "GoTo"]:
+                if line.char == "Scene":
+                    background = self.bkdrops[line.text]
+                    script.go_to_next()
+                if line.char == "GoTo":
+                    self.start_file = line.text
+                    script = self.parse_script()
+                line = script.lines[0]
+
             pygame.event.pump()
             pressed = pygame.event.get(pygame.KEYDOWN)
             if len(pressed):
                 keys = [item.key for item in pressed]
-                print(keys)
                 if 13 in keys:
                     script.go_to_next()
 
-            self.screen.fill((50, 50, 50))
-            line = script.lines[0]
+            self.screen.blit(background, (0, 0))
             line.update(dt)
             line.draw(self.screen)
 
@@ -88,12 +105,30 @@ class Scene(object):
 
     def __init__(self):
         self.lines = []
+        self.past_lines = []
 
     def add_lines(self, line_list):
         self.lines += line_list
 
     def go_to_next(self):
+        self.past_lines.append(self.lines[0])
         self.lines = self.lines[1:]
+        if self.char_has_changed():
+            self.lines[0].character_fade_in()
+
+    def last_line(self):
+        return self.past_lines[-1]
+
+    def last_character(self):
+        try:
+            return self.last_line().char
+        except:
+            return "Narrator"
+
+    def char_has_changed(self):
+        if self.last_character() == self.lines[0].char:
+            return False
+        return True
 
 
 
@@ -103,10 +138,15 @@ class Line(object):
         """ Char says text in expr way """
         self.char = char
         self.expr = expr
-        self.text = text.strip(" ").strip('"')
+        print(text)
+        self.text = text.strip(" ").strip('"').decode()
         self.characters_shown = 0
         self.time = 0
         self.chars_per_second = READING_SPEED
+        self.char_opacity = 255
+        self.char_yoff = 0
+        self.target_opacity = 255
+        self.target_yoff = 0
 
     def __repr__(self):
         return ("%s (%s): %s" % (self.char, self.expr, self.text))
@@ -119,6 +159,27 @@ class Line(object):
     def update(self, dt):
         self.time += dt
 
+        fade_speed = 255.0/CHAR_FADE_IN_TIME
+        float_speed = 1.0*CHAR_FADE_IN_OFFSET/CHAR_FADE_IN_TIME
+
+        if self.char_yoff < self.target_yoff:
+            self.char_yoff = min(self.target_yoff, self.char_yoff + float_speed*dt)
+        else:
+            self.char_yoff = max(self.target_yoff, self.char_yoff - float_speed*dt)
+
+        if self.char_opacity < self.target_opacity:
+            self.char_opacity = min(self.target_opacity, self.char_opacity + fade_speed*dt)
+        else:
+            self.char_opacity = max(self.target_opacity, self.char_opacity - fade_speed*dt)
+
+
+    def character_fade_in(self):
+        self.char_opacity = 0
+        self.target_opacity = 255
+
+        self.char_yoff = CHAR_FADE_IN_OFFSET
+        self.target_yoff = 0
+
     def draw_character(self, screen):
         expressions = CHAR_DICT[self.char]
         correct_expression = expressions[self.expr.lower().capitalize()]
@@ -127,7 +188,13 @@ class Line(object):
         except:
             img = pygame.image.load("images/hero_angry.png")
 
-        screen.blit(img, CHAR_POS)
+        #img.set_colorkey((0, 255, 0))
+        img = img.convert()
+        trans_color = img.get_at((0,0))
+        img.set_colorkey(trans_color)
+        img.set_alpha(self.char_opacity)
+
+        screen.blit(img, (CHAR_POS[0], CHAR_POS[1] + self.char_yoff))
 
     def draw_text_box(self, screen):
 
@@ -168,7 +235,6 @@ class Line(object):
                 text_to_try = " ".join(text_to_try)
                 font_img = font.render(test_img.strip(" ").strip('"'), 1, (255, 255, 255))
 
-            print(len(text_renders))
             text_to_try = text_to_try[max(len(text_renders)-1, 0):]
             font_img = font.render(text_to_try.strip(" ").strip('"'), 1, (255, 255, 255))
             text_renders.append(font_img)

@@ -1,0 +1,27 @@
+Act 2: Bandits
+
+#Scene
+/Default
+Act 2
+
+#Narrator
+/Default
+The dragon makes his home in a nearby volcano. The notice explained how he has [more intro text]
+
+#Narrator
+/Default
+Benethir seems unconcerned with the dragon, going on about a different subject entirely.
+
+#Benethir
+/Default
+It's guild business. He should be here. What's so great about books anyway? You can't kill something with a book! It's stupid is what it is. And cowardly! He's afraid of a measly dragon!
+
+#Narrator
+/Default
+Ahead, you can see a small group of bandits hiding behind the trees and bushes that line the road.
+
+#Prompt
+/Warn Benethir of the danger!
+scene_2_warned.txt
+/Do nothing
+Scene_2_unwarned.txt

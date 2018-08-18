@@ -2,6 +2,14 @@ Act: Intro
 
 (Scene: Wizards home. The wizard is at his cauldron stirring a pot)
 
+#Scene
+/Default
+Intro
+
+#Narrator
+/Default
+...
+
 #Benethir
 /Default
 "Knock, knock"
@@ -13,15 +21,15 @@ Act: Intro
 
 #Benethir
 /Default
-"I got a mission from the guild. We gotta kill the dragon of burning mountain!"
+I got a mission from the guild. We gotta kill the dragon of burning mountain!
 
 #Hiens
 /Default
-"Not me. I'm mid way through my studies and must focus. Can't you recruit someone else for this task?"
+Not me. I'm mid way through my studies and must focus. Can't you recruit someone else for this task?
 
 #Benethir
 /Annoyed
-"Come on, Hiens, it's for the Guild."
+Come on, Hiens, it's for the Guild.
 /More annoyed
 Hiens?
 /Defeated
@@ -29,9 +37,9 @@ Okay Hiens, I'll be honest. I could handle this mission solo style, but you are 
 
 #Hiens
 /touched
-"Oh... I'm touched. "
+Oh... I'm touched.
 /Default
-"But I won't go"
+But I won't go.
 
 #Benethir
 /Angry
@@ -57,6 +65,10 @@ To be honest, it might not be very helpful but at least it'll keep you company.
 
 #Benethir
 /Annoyed
-”Err... Well thanks... I'll take this thing along with me, but when I'm in the grips of battle and this whatever you called it doesn't help, I'll be thinking of you."
+Err... Well thanks... I'll take this thing along with me, but when I'm in the grips of battle and this whatever you called it doesn't help, I'll be thinking of you.
 /Eager
 Come little fellah, let's go.
+
+#GoTo
+/Default
+act_2.txt
