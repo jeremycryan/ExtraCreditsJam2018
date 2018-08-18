@@ -1,22 +1,62 @@
-#Hero
-/Default
-Hello, I am the glorious hero of the story.
-I am still in my default pose, but this is a new line of dialogue.
-/Sad
-I am sad now.
+Act: Intro
 
-#Narrator
-/Default
-The hero walks in all swiggity.
+(Scene: Wizards home. The wizard is at his cauldron stirring a pot)
 
-#Benethor
+#Benethir
 /Default
-Greetings, hero!
-/Touched
-We're making a game!
+"Knock, knock"
+"Yo Hiens!! Its me open the door."
 
-#Prompt
-/Warn the wizard of the approaching dunce
-scene_1_warned.txt
-/Do nothing
-scene_1_unwarned.txt
+#Hiens
+/Default
+"Afternoon."
+
+#Benethir
+/Default
+"I got a mission from the guild. We gotta kill the dragon of burning mountain!"
+
+#Hiens
+/Default
+"Not me. I'm mid way through my studies and must focus. Can't you recruit someone else for this task?"
+
+#Benethir
+/Annoyed
+"Come on, Hiens, it's for the Guild."
+/More annoyed
+Hiens?
+/Defeated
+Okay Hiens, I'll be honest. I could handle this mission solo style, but you are my friend, it'll be that much more enjoyable to go on this mission with someone I trust. Put that spoon away and let's go.
+
+#Hiens
+/touched
+"Oh... I'm touched. "
+/Default
+"But I won't go"
+
+#Benethir
+/Angry
+Fine Hiens, be that way!
+
+#Hiens
+/Hands Raised
+Hold on, hold on. Let me get you something.
+/Default
+Take this with you. I'm far to busy to assist in person, but this tiny creature can serve as a guide. This sprite can provide useful tips and can aid you in variety of minor ways.
+
+#Sprite
+/Default
+...
+
+#Benethir
+/Annoyed
+...
+
+#Hiens
+/Default
+To be honest, it might not be very helpful but at least it'll keep you company.
+
+#Benethir
+/Annoyed
+”Err... Well thanks... I'll take this thing along with me, but when I'm in the grips of battle and this whatever you called it doesn't help, I'll be thinking of you."
+/Eager
+Come little fellah, let's go.
