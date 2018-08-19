@@ -28,6 +28,10 @@ I got a mission from the guild. We gotta kill the dragon of burning mountain!
 /Default
 Not me. I'm mid way through my studies and must focus. Can't you recruit someone else for this task?
 
+#AddAnnoyance
+/Default
+-3.0
+
 #Benethir
 /Annoyed
 Come on, Hiens, it's for the Guild.
@@ -55,6 +59,10 @@ Take this with you. I'm far to busy to assist in person, but this tiny creature 
 #Sprite
 /Default
 ...
+
+#AddAnnoyance
+/Default
+2.0
 
 #Benethir
 /Annoyed

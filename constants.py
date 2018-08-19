@@ -6,6 +6,8 @@ import pygame
 ################## CHARACTERS AND POSES ##################
 ##########################################################
 
+GAME_TITLE = "Game Title"
+
 DO_NOT_SHOW_NAME = ["Scene", "Prompt", "Narrator"]
 
 HERO_POSES = {"Default": "Knight-Default.png",
@@ -23,7 +25,7 @@ WIZARD_POSES = {"Default": "Wizard-Default.png",
     "Busy": "Wizard-Busy.png",
     "Angry": "Wizard-Angry.png"}
 
-SPRITE_POSES = {"Default": "sprite_default.png"}
+SPRITE_POSES = {"Default": "Fairy-Default.png"}
 
 NARRATOR_POSES = {"Default": "empty.png"}
 

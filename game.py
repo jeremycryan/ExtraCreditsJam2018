@@ -12,18 +12,84 @@ class Game(object):
     def __init__(self):
         pygame.mixer.pre_init()
         pygame.init()
-        self.res = self.prompt_resolution()
+        self.res, fullscreen = self.prompt_resolution()
+        pygame.display.quit()
+        self.load_images()
         self.display_screen = pygame.display.set_mode(self.res)
+        pygame.display.set_caption(GAME_TITLE)
+        if fullscreen:
+            pygame.display.toggle_fullscreen()
         self.screen = pygame.Surface(GAME_SIZE)
 
         self.script_path = "script/"
         self.image_path = "images/"
         self.start_file = "start.txt"
+
+        self.annoyance = 0
+
         self.main()
 
+
     def prompt_resolution(self):
-        resolution = (800, 450)
-        return resolution
+
+        screen = pygame.display.set_mode((320, 240))
+        pygame.display.set_caption(GAME_TITLE)
+        tfont = pygame.font.SysFont("Courier", 20, bold=True)
+        font = pygame.font.SysFont("Courier", 20)
+
+        hey = tfont.render("Choose a resolution:", 1, (255, 255, 255))
+
+        reses = ["800x450 windowed",
+            "1280x720 windowed",
+            "1920x1080 windowed",
+            "1920x1080 fullscreen"]
+        actual_reses = [(800, 450),
+            (1280, 720),
+            (1920, 1080),
+            (1920, 1080)]
+        selection = 0
+
+        ose = []
+        for i, res in enumerate(reses):
+            bright = 150+(105*(selection==i))
+            o = font.render(res, 1, (bright, bright, bright))
+            ose.append(o)
+
+        screen.blit(hey, (int(160-hey.get_width()/2), 65))
+        for i, item in enumerate(ose):
+            screen.blit(item, (int(160-item.get_width()/2), 90 + 20*i))
+        pygame.display.flip()
+
+        while True:
+            screen.fill((0, 0, 0))
+            events = pygame.event.get(pygame.KEYDOWN)
+            keys = [event.key for event in events]
+            if len(keys):
+                if 274 in keys:
+                    selection += 1
+                    selection = min(selection, 3)
+                if 273 in keys:
+                    selection -= 1
+                    selection = max(selection, 0)
+                if 13 in keys:
+                    break
+
+
+            ose = []
+            for i, res in enumerate(reses):
+                bright = 150+(105*(selection==i))
+                o = font.render(res, 1, (bright, bright, bright))
+                ose.append(o)
+
+            screen.blit(hey, (int(160-hey.get_width()/2), 65))
+            for i, item in enumerate(ose):
+                screen.blit(item, (int(160-item.get_width()/2), 90 + 20*i))
+            pygame.display.flip()
+
+        resolution = actual_reses[selection]
+        go_full = (selection==3)
+
+        return resolution, go_full
 
     def scene(self):
         pass
@@ -72,16 +138,8 @@ class Game(object):
 
         return scene
 
-    def main(self):
+    def load_images(self):
 
-        script = self.parse_script()
-
-        then = time()
-        sleep(0.01)
-        background = pygame.Surface((1920, 1080))
-        background.fill((50, 50, 50))
-
-        line = script.lines[0]
         self.bkdrops = {}
         for item in BACKGROUNDS:
             backdrop = pygame.image.load("images/"+BACKGROUNDS[item])
@@ -100,7 +158,26 @@ class Game(object):
                     new_img.fill((200, 200, 90))
                 pose_dict[pose] = new_img
 
+    def main(self):
+
+        script = self.parse_script()
+
+        then = time()
+        sleep(0.01)
+        background = pygame.Surface((1920, 1080))
+        background.fill((50, 50, 50))
+
+        line = script.lines[0]
+
+
         self.lockout = False
+        fade_surf = pygame.Surface((self.res))
+        fade_surf.fill((0, 0, 0))
+        fade_surf.set_alpha(0)
+        target_fade = 0
+        cur_fade = 0
+
+        first_scene = True
 
         while True:
 
@@ -113,14 +190,41 @@ class Game(object):
                 script = self.parse_script()
             line = script.lines[0]
 
-            while line.char in ["Scene", "GoTo"]:
+            speed = 220
+            if cur_fade < target_fade:
+                cur_fade = min(target_fade, cur_fade + speed*dt)
+            else:
+                cur_fade = max(target_fade, cur_fade - speed*dt)
+            fade_surf.set_alpha(cur_fade)
+
+            while line.char in ["Scene", "GoTo", "AddAnnoyance"]:
                 if line.char == "Scene":
+                    if not first_scene:
+                        target_fade = 255
+                        if cur_fade < target_fade:
+                            self.lockout = True
+                            break
+                        self.lockout = False
+                        target_fade = 0
+                    first_scene = False
                     background = self.bkdrops[line.text]
                     script.go_to_next()
                 if line.char == "GoTo":
                     self.start_file = line.text
                     script = self.parse_script()
+                if line.char == "AddAnnoyance":
+                    amt = float(line.text)
+                    self.annoyance += amt
+                    script.go_to_next()
                 line = script.lines[0]
+
+            if line.char not in ["Scene", "GoTo", "AddAnnoyance"]:
+                last_char_line = line
+
+            self.temp_lock = False
+            if line.char == "Prompt":
+                if line.prop_done() < 0.25:
+                    self.temp_lock = True
 
 
             pygame.event.pump()
@@ -129,8 +233,10 @@ class Game(object):
                 keys = [item.key for item in pressed]
                 if 27 in keys:
                     self.close_game()
+                if 292 in keys:
+                    pygame.display.toggle_fullscreen()
 
-                if not self.lockout:
+                if not self.lockout and not self.temp_lock:
                     if 13 in keys or 275 in keys:
                         if line.is_prompt:
                             self.start_file = line.get_link(0)
@@ -139,10 +245,22 @@ class Game(object):
                         script.go_to_next()
 
             self.screen.blit(background, (0, 0))
-            line.update(dt)
-            line.draw(self.screen)
+
+            if not self.lockout:
+                if cur_fade == target_fade:
+                    line.update(dt)
+                    line.draw(self.screen)
+                else:
+                    line.draw_text_box(self.screen)
+            else:
+                last_char_line.target_opacity = 0
+                last_char_line.target_yoff = 9999
+                last_char_line.update(dt)
+                last_char_line.draw(self.screen)
+
 
             scaled_down = pygame.transform.scale(self.screen, self.res)
+            scaled_down.blit(fade_surf, (0, 0))
             self.display_screen.blit(scaled_down, (0, 0))
             pygame.display.flip()
 
@@ -351,6 +469,9 @@ class Prompt(Line):
         self.reaction_time = 8.0
         self.is_prompt = True
 
+    def prop_done(self):
+        return (time()-self.start_time)/self.reaction_time
+
     def has_expired(self):
         if time() - self.start_time >= self.reaction_time + 0.1:
             return True
@@ -402,7 +523,7 @@ class Prompt(Line):
 
     def draw_time_bar(self, screen):
         max_width = 1600
-        height = 8
+        height = 6
 
         time_elapsed = min(self.reaction_time, time() - self.start_time)
         prop_left = (self.reaction_time-time_elapsed)/self.reaction_time
@@ -412,16 +533,22 @@ class Prompt(Line):
             return
 
         bar = pygame.Surface((cur_width, height))
+        bar_shadow = pygame.Surface((cur_width, height))
         prop_done = 1-prop_left
         r = 200
         b = 200 - 100*prop_done
         g = 200 - 100*prop_done
         bar.fill((int(r), int(g), int(b)))
+        r -= 50
+        g -= 50
+        b -= 50
+        bar_shadow.fill((int(r), int(g), int(b)))
 
         xpos = GAME_SIZE[0]/2 - int(cur_width/2)
         ypos = TEXT_BOX_POS[1] + 30
 
         screen.blit(bar, (xpos, ypos))
+        screen.blit(bar_shadow, (xpos, ypos+height))
 
 
 if __name__ == '__main__':
