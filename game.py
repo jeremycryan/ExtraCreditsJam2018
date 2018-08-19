@@ -34,7 +34,7 @@ class Game(object):
         self.heins = pygame.mixer.Sound(file="sounds/hiens_theme.wav")
         self.battle = pygame.mixer.Sound(file="sounds/heat_of_battle.wav")
         self.shadow = pygame.mixer.Sound(file="sounds/shadow.wav")
-        self.silence = pygame.mixer.Sound("1234")
+        self.silence = pygame.mixer.Sound(file="sounds/heat_of_battle.wav")
         self.silence.set_volume(0)
         self.shadow.set_volume(0.3)
         self.battle.set_volume(0.7)
@@ -299,9 +299,6 @@ class Game(object):
 
             scaled_down = pygame.transform.scale(self.screen, self.res)
             scaled_down.blit(fade_surf, (0, 0))
-
-            annoy_font = pygame.font.SysFont("Arial", 30)
-            scaled_down.blit(annoy_font.render(str(self.annoyance), 1, (255, 255, 255)), (50, 50))
 
             self.display_screen.blit(scaled_down, (0, 0))
             pygame.display.flip()
