@@ -1,4 +1,4 @@
-#Narrator
+﻿#Narrator
 /Default
 Nothing stops a warrior once he has spotted his foe. Benethir rips through the undergrowth and cuts down the man before he can so much as scream.
 
@@ -24,7 +24,7 @@ Well, no matter. This potion will be helpful for the both of us.
 
 #Narrator
 /Default
-Benethir leans over to wipe his sword off on the grass. He drains the potion in one gulp and drops the flask next to the priest’s body.
+Benethir leans over to wipe his sword off on the grass. He drains the potion in one gulp and drops the flask next to the priest's body.
 
 #AddAnnoyance
 /Default
