@@ -6,7 +6,7 @@ import pygame
 ################## CHARACTERS AND POSES ##################
 ##########################################################
 
-GAME_TITLE = "Game Title"
+GAME_TITLE = "Burning Mountain"
 
 DO_NOT_SHOW_NAME = ["Scene", "Prompt", "Narrator"]
 
@@ -32,6 +32,8 @@ SPRITE_POSES = {"Default": "Fairy-Default.png",
 
 NARRATOR_POSES = {"Default": "empty.png"}
 
+TITLE_POSES = {"Default": "empty.png"}
+
 PRIEST_POSES = {"Default": "Priest-Default.png",
     "Frightened": "Priest-Frightened.png",
     "Knocked out": "Priest-KnockedOUT.png",
@@ -51,11 +53,13 @@ CHAR_DICT = {"Hiens": WIZARD_POSES,
     "Bandit": BANDIT_POSES,
     "Dragon": DRAGON_POSES,
     "Narrator": NARRATOR_POSES,
-    "Priest": PRIEST_POSES}
+    "Priest": PRIEST_POSES,
+    "Burning Mountain": TITLE_POSES}
 
-BACKGROUNDS = {"Intro": "workshop_placeholder.jpg",
-    "Act 2": "woodland_placeholder.jpg",
-    "Act 4": "workshop_placeholder.jpg"}
+BACKGROUNDS = {"Workshop": "workshop.png",
+    "Forest": "forest_road.png",
+    "Mountain": "mountain.png",
+    "Cavern": "cavern.png"}
 
 #########################################################
 ################# WINDOW AND DISPLAY ####################

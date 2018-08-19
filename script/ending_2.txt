@@ -12,6 +12,6 @@ Yeah.
 And with that, Benethir returns you to the wizard, who in turn returns you to your shelf. They will be back, you know, before the next adventure.
 For now, it's time to rest.
 
-#End
+#GoTo
 /Default
-end
+start.txt

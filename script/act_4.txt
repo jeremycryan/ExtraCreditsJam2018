@@ -1,6 +1,6 @@
 #Scene
 /Default
-Act 4
+Mountain
 
 #Music
 /Default

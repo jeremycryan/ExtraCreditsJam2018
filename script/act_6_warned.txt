@@ -23,7 +23,7 @@ Molog opens his massive jaws and scorching fire jets from his mouth.
 To your surprise, Benethir drops to the ground and remains unharmed.
 
 #Benethir
-/Calm
+/Eager
 Ha! You missed, foolish lizard!
 
 #Narrator

@@ -6,6 +6,7 @@ from constants import *
 from time import time, sleep
 import sys
 from math import sin
+import ctypes
 
 class Game(object):
 
@@ -16,10 +17,13 @@ class Game(object):
         pygame.display.quit()
         self.load_images()
         self.load_sounds()
-        self.display_screen = pygame.display.set_mode(self.res)
-        pygame.display.set_caption(GAME_TITLE)
         if fullscreen:
-            pygame.display.toggle_fullscreen()
+            ctypes.windll.user32.SetProcessDPIAware()
+            self.res = (ctypes.windll.user32.GetSystemMetrics(0),ctypes.windll.user32.GetSystemMetrics(1))
+            self.display_screen = pygame.display.set_mode(self.res, pygame.FULLSCREEN)
+        else:
+            self.display_screen = pygame.display.set_mode(self.res)
+        pygame.display.set_caption(GAME_TITLE)
         self.screen = pygame.Surface(GAME_SIZE)
 
         self.script_path = "script/"
@@ -161,7 +165,6 @@ class Game(object):
         self.bkdrops = {}
         for item in BACKGROUNDS:
             backdrop = pygame.image.load("images/"+BACKGROUNDS[item])
-            backdrop = pygame.transform.scale(backdrop, (160, 90))
             self.bkdrops[item] = pygame.transform.scale(backdrop, GAME_SIZE)
 
         for character in CHAR_DICT:
@@ -524,7 +527,7 @@ class Prompt(Line):
         Line.__init__(self, char, expr, text)
         self.time_started = False
         self.start_time = 0
-        self.reaction_time = 8.0
+        self.reaction_time = 6.0
         self.is_prompt = True
 
     def prop_done(self):

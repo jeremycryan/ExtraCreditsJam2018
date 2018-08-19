@@ -1,91 +1,15 @@
-Act: Intro
-
-(Scene: Wizards home. The wizard is at his cauldron stirring a pot)
-
 #Scene
 /Default
-Intro
+Mountain
 
 #Music
 /Default
 Heins
 
-#Benethir
+#Burning Mountain
 /Default
-Knock, knock!
-Yo Hiens!! It's me, open the door!
-
-
-#Hiens
-/Default
-Hold your horses Benethir, I'm coming.
-Good afternoon.
-
-#Benethir
-/Confident
-I got a mission from the guild. We're killing The Dragon of Burning Mountain.
-
-#Hiens
-/Busy
-You mean you're killing The Dragon of Burning Mountain. I am staying right here and studying.
-
-#Benethir
-/Annoyed
-Can't your books wait for once? Hiens?
-
-#Benethir
-/Annoyed
-It's for the guild, Heins.
-
-#Hiens
-/Default
-...
-
-#Benethir
-/Defeated
-Fine Hiens, have it your way. I could easily handle this myself.
-I just thought it would be fun to go with a friend.
-/Default
-It's always better to adventure with someone you trust!
-
-#Hiens
-/Touched
-Oh... I'm touched.
-
-#Hiens
-/Default
-But I'm sorry, I can't go.
-
-#Benethir
-/Angry
-Fine! Whatever. I'll be on my way then!
-
-#Hiens
-/Hands Raised
-Hold on, hold on. Let me get you something.
-
-#Hiens
-/Default
-Take this with you. I'm far too busy to assist in person but this tiny creature can serve as a guide. This sprite will provide useful tips and aid you in a variety of ways.
-
-#Sprite
-/Default
-...
-
-#Benethir
-/Annoyed
-It can't even wield a sword, how is this supposed to help me?
-
-#Hiens
-/Busy
-Hmmm... Perhaps it won't be of much help. But regardless, it at least will keep you company.
-
-#Benethir
-/Annoyed
-Uh, thanks Hiens... I'll take this thing with me, but when I'm in the middle of battle facing down foes without backup, I'll be thinking of you.
-/Eager
-Come on then little fella, let's go slay a dragon.
+Press Enter to begin your journey.
 
 #GoTo
 /Default
-act_2.txt
+intro.txt

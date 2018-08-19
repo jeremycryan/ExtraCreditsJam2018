@@ -1,10 +1,10 @@
-#Music
-/Default
-Silence
-
 #Narrator
 /Default
 After a tense moment, the tail slithers deeper into the tunnels. The two of you were probably unnoticed as you continue toward the heart of Burning Mountain.
+
+#Scene
+/Default
+Cavern
 
 #Music
 /Default

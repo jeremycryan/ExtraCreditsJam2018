@@ -1,3 +1,7 @@
+#Scene
+/Default
+Mountain
+
 #Music
 /Default
 Heins

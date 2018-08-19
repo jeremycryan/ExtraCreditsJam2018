@@ -28,6 +28,6 @@ Yes... a new recipe. Less nightshade perhaps. And maybe a bat's ear.
 /Default
 He raises his hand and snaps. You are gone. 
 
-#End
+#GoTo
 /Default
-end
+start.txt

@@ -25,6 +25,6 @@ All of my ideas are good.
 Yes...
 Let's quit while we're ahead, shall we?
 
-#End
+#GoTo
 /Default
-end
+start.txt

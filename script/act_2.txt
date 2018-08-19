@@ -2,7 +2,7 @@ Act 2 Bandits
 
 #Scene
 /Default
-Act 2
+Forest
 
 #Music
 /Default
