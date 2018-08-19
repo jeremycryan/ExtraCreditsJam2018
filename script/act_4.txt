@@ -1,0 +1,21 @@
+#Scene
+/Default
+Act 4
+
+#Narrator
+/Default
+Out of the forest at last, you have arrived to the base of Burning Mountain. The air is hot and sticky and every flap of your wings takes effort.
+
+#Benethir
+/Calm
+The evil dragon is up there!
+
+#Narrator
+/Default
+Yes. The danger of the mission finally hits you. A dragon is a different beast from bandits or priests in the woods. Are you sure you can handle this? Are you sure Benethir can?
+
+#Prompt
+/Tell Benethir to abandon the mission, it's too dangerous.
+act_4_warned.txt
+/Do nothing
+act_4_unwarned.txt

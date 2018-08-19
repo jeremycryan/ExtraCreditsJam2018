@@ -1,0 +1,19 @@
+#Sprite
+/Alarmed
+What's that!?
+
+#Narrator
+/Default
+Benethir stops to control his breathing. You silently point out the dragon's tail.
+
+#Benethir
+/Calm
+That could have been bad.
+
+#AddAnnoyance
+/Default
+-1
+
+#GoTo
+/Default
+act_5_molog.txt

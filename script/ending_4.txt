@@ -1,0 +1,30 @@
+#Hiens
+/default
+Fantastic! That is wonderful. I'll need to examine this link between dragons and related fiery activity.
+Well, whatever the case, the dragon is gone you should tell the guild the good news!
+
+#Benethir
+/Calm
+I'll do that.
+/Defeated
+But uh, as great as the sprite was, I missed you.
+/Default
+You're still part of the guild, you should come on the next quest.
+
+#Hiens
+/Default
+Yes. Yes, that could be just what I need! A chance to get some sun on these old bones and observe things up close.
+That's a good idea, old friend!
+
+#Benethir
+/Default
+All of my ideas are good.
+
+#Hiens
+/Hands raised
+Yes...
+Let's quit while we're ahead, shall we?
+
+#End
+/Default
+end

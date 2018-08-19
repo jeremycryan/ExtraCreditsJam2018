@@ -1,0 +1,28 @@
+#Sprite
+/Default
+...
+
+#Narrator
+/Default
+There's a huge noise and the cavern shakes, causing stones to fall from the ceiling.
+
+#Benethir
+/Frightened
+What was that?
+
+#Narrator
+
+/Default
+Benethir's question is answered a moment later when a giant red tail slams into the wall.
+
+#Benethir
+/Frightened
+!
+
+#AddAnnoyance
+/Default
+1.0
+
+#GoTo
+/Default
+act_5_molog.txt

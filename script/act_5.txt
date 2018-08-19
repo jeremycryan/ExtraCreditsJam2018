@@ -1,0 +1,11 @@
+[Intro text. Multiple Prompts for danger. If calm: Warrior talks to dragon, if annoyed warrior attacks dragon. Either way, problem is solved]
+
+#Narrator
+/Default
+You have no idea how the warrior stands the heat in all that armor but he hasn't stopped to rest. His breaths huff rhythmically, almost loud enough that you don't hear the scraping of... something against stone.
+
+#Prompt
+/Point out the strange sound
+act_5_warned.txt
+/Do nothing
+act_5_unwarned.txt

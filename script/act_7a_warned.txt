@@ -1,0 +1,19 @@
+#Dragon
+/Fire
+!!!
+
+#Narrator
+/Default
+Fire fills the cavern.
+
+#Narrator
+/Default
+Your warning came soon enough for him to dodge the dragon's claws and his fiery breath. Benethir raises his sword.
+
+#AddAnnoyance
+/Default
+-1
+
+#GoTo
+/Default
+act_7a_afterward.txt

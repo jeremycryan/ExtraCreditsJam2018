@@ -15,6 +15,7 @@ class Game(object):
         self.res, fullscreen = self.prompt_resolution()
         pygame.display.quit()
         self.load_images()
+        self.load_sounds()
         self.display_screen = pygame.display.set_mode(self.res)
         pygame.display.set_caption(GAME_TITLE)
         if fullscreen:
@@ -29,6 +30,16 @@ class Game(object):
 
         self.main()
 
+    def load_sounds(self):
+        self.heins = pygame.mixer.Sound(file="sounds/hiens_theme.wav")
+        self.battle = pygame.mixer.Sound(file="sounds/heat_of_battle.wav")
+        self.music = {"Heins": self.heins,
+            "Battle": self.battle}
+
+        self.blip = pygame.mixer.Sound("sounds/blip.wav")
+        self.blip.set_volume(0.17)
+
+        self.music_playing = None
 
     def prompt_resolution(self):
 
@@ -103,7 +114,7 @@ class Game(object):
         for item in by_char:
             char = item.split("\n")[0]
 
-            if char == "Prompt":
+            if char == "Prompt" or char == "TestAnnoyance":
 
                 by_option = item.split("/")[1:]
                 options = []
@@ -130,10 +141,10 @@ class Game(object):
                 for line_item in by_line:
 
                     if len(line_item)>1:
-                        line_to_add = Line(char, mood, line_item)
+                        line_to_add = Line(char, mood, line_item, sound=self.blip)
                         scene.add_lines([line_to_add])
 
-        # for item in scene.lines:
+        # for item in scene.lines:line_text
         #     print(item)
 
         return scene
@@ -197,11 +208,14 @@ class Game(object):
                 cur_fade = max(target_fade, cur_fade - speed*dt)
             fade_surf.set_alpha(cur_fade)
 
-            while line.char in ["Scene", "GoTo", "AddAnnoyance"]:
+            while line.char in ["Scene", "GoTo", "AddAnnoyance", "Music", "TestAnnoyance"]:
                 if line.char == "Scene":
                     if not first_scene:
                         target_fade = 255
                         if cur_fade < target_fade:
+                            if self.music_playing:
+                                self.music_playing.fadeout(1000)
+                                self.music_playing = None
                             self.lockout = True
                             break
                         self.lockout = False
@@ -216,9 +230,23 @@ class Game(object):
                     amt = float(line.text)
                     self.annoyance += amt
                     script.go_to_next()
+                if line.char == "Music":
+                    if self.music_playing:
+                        self.music_playing.fadeout(2000)
+                    self.music[line.text].play(loops=-1)
+                    self.music_playing = self.music[line.text]
+                    script.go_to_next()
+                if line.char == "TestAnnoyance":
+                    modes = [int(option) for option in line.options]
+                    for i, mode in enumerate(modes):
+                        if self.annoyance >= mode:
+                            self.start_file = line.links[i]
+                            script = self.parse_script()
+                            break
+
                 line = script.lines[0]
 
-            if line.char not in ["Scene", "GoTo", "AddAnnoyance"]:
+            if line.char not in ["Scene", "GoTo", "AddAnnoyance", "Music", "TestAnnoyance"]:
                 last_char_line = line
 
             self.temp_lock = False
@@ -261,6 +289,10 @@ class Game(object):
 
             scaled_down = pygame.transform.scale(self.screen, self.res)
             scaled_down.blit(fade_surf, (0, 0))
+
+            annoy_font = pygame.font.SysFont("Arial", 30)
+            scaled_down.blit(annoy_font.render(str(self.annoyance), 1, (255, 255, 255)), (50, 50))
+
             self.display_screen.blit(scaled_down, (0, 0))
             pygame.display.flip()
 
@@ -305,11 +337,12 @@ class Scene(object):
 
 class Line(object):
 
-    def __init__(self, char, expr, text):
+
+    def __init__(self, char, expr, text, sound=None):
         """ Char says text in expr way """
         self.char = char
         self.expr = expr
-        self.text = text.strip(" ").strip('"').decode()
+        self.text = text.strip(" ").strip('"')
         self.characters_shown = 0
         self.time = 0
         self.chars_per_second = READING_SPEED
@@ -323,6 +356,15 @@ class Line(object):
         self.bounce_freq = 6.28*6.0
 
         self.is_prompt = False
+
+        self.time_since_blip = 5
+        self.sound = sound
+
+    def set_options(self, options):
+        self.options = options
+
+    def set_links(self, links):
+        self.links = links
 
     def __repr__(self):
         return ("%s (%s): %s" % (self.char, self.expr, self.text))
@@ -340,6 +382,12 @@ class Line(object):
 
     def update(self, dt):
         self.time += dt
+
+        # self.time_since_blip += dt
+        # if self.time_since_blip > BLIP_PER and self.sound and self.characters_shown < len(self.text)-5:
+        #     self.sound.stop()
+        #     self.sound.play()
+        #     self.time_since_blip = 0
 
         fade_speed = 255.0/CHAR_FADE_IN_TIME
         float_speed = 1.0*CHAR_FADE_IN_OFFSET/CHAR_FADE_IN_TIME

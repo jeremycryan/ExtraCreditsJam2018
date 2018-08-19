@@ -1,0 +1,20 @@
+
+#Dragon
+/Fire
+!!!
+
+#Narrator
+/Default
+Molog opens his massive jaws and scorching fire jets from his mouth. Benethir in all his bravado fails to react to the fiery breath of the dragon and is scorched for it.
+
+#Benethir
+/Angry
+You will regret that, Dragon!
+
+#AddAnnoyance
+/Default
+1.0
+
+#GoTo
+/Default
+act_6_bridge.txt

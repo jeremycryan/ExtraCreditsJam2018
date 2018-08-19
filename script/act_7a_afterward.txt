@@ -1,0 +1,23 @@
+#Narrator
+/Default
+The battle is long and grueling, but you're no longer needed. Benethir rolls and cuts and dodges like he was born for this battle. Every time Molog shifts and exposes his soft underbelly Benethir sees the opening and attacks.
+
+#Dragon
+/Angry
+You will not win, little human! You cannot slay the mighty Molog!
+
+#Narrator
+/Default
+The dragon rears up for a final attack but you can see that the battle has taken its toll on him. The dragon is weakened.
+
+#Benethir
+/Angry
+This is for the guild!
+
+#Narrator
+/Default
+Benethir's sword sinks deep into the dragon's belly. It's clear that the fight is over.
+
+#GoTo
+/Default
+act_7_journey_home.txt

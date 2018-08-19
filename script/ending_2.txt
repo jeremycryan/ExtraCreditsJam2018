@@ -1,0 +1,17 @@
+#Hiens
+/Default
+Ah, good good. All is as expected then.
+See, you don't need my help after all. Why don't you tell the guild of your success?
+
+#Benethir
+/Default
+Yeah.
+
+#Narrator
+/Default
+And with that, Benethir returns you to the wizard, who in turn returns you to your shelf. They will be back, you know, before the next adventure.
+For now, it's time to rest.
+
+#End
+/Default
+end

@@ -1,24 +1,29 @@
-Act 2: Bandits
+Act 2 Bandits
 
 #Scene
 /Default
 Act 2
 
-#Narrator
+#Music
 /Default
-The dragon makes his home in a nearby volcano. The notice explained how he has [more intro text]
+Battle
 
 #Narrator
 /Default
-Benethir seems unconcerned with the dragon, going on about a different subject entirely.
+The Dragon of Burning Mountain lives, surprisingly enough, in Burning Mountain. The name is recent, given for years it was a normal mountain that required no special name.
+But ever since that dragon showed up, all the forests and villages near the base of the mountain have been catching fire. The guild now sends its hero to slay the dragon and stop this destruction.
+
+#Narrator
+/Default
+Benethir the warrior, despite signing up for this very task, seems unconcerned with the dragon; he goes on to rant about a different subject entirely.
 
 #Benethir
-/Default
+/Angry
 It's guild business. He should be here. What's so great about books anyway? You can't kill something with a book! It's stupid is what it is. And cowardly! He's afraid of a measly dragon!
 
 #Narrator
 /Default
-Ahead, you can see a small group of bandits hiding behind the trees and bushes that line the road.
+Ahead, a small group of bandits are hiding behind the trees and bushes along the road.
 
 #Prompt
 /Warn Benethir of the danger!

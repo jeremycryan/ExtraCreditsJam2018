@@ -1,14 +1,35 @@
-#Narrator
-/Default
-The first arrow whizzes toward Benethir. He catches it in his fist. He cuts the second out of the air with his sword. He grins as he advances on the third bandit, who had been unlucky enough to jump into the middle of the road.
+#Sprite
+/Alarmed
+Look out!
 
 #Benethir
-/Default
-You thought you could challenge me? Fool!
+/Angry
+Huh? What's that?
 
 #Narrator
 /Default
-He runs forward and makes short work of the bandit. The road is quiet once more. Benethir gives you a respectful nod.
+The first arrow whizzes toward Benethir. He catches it in his fist and strikes down the first bandit. The second bandit attempts bury his knife into the warrior, but the warrior dodges the assault and strikes.
+Benethir grins as he advances onto the third bandit, the one who had been unlucky enough to jump into the middle of the road.
+
+#Bandit
+/Default
+Blimey, The runt done caught our arrows!
+
+#Benethir
+/Confident
+You thought you could challenge me? Fool!
+
+#Bandit
+/Default
+Gahhh...
+
+#Narrator
+/Default
+Benethir makes short work of the bandit. The road is quiet once more. Benethir gives you a respectful nod.
+
+#AddAnnoyance
+/Default
+-1
 
 #GoTo
 /Default

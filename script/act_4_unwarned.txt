@@ -1,0 +1,19 @@
+#Sprite
+/Default
+...
+
+#Narrator
+/Default
+You say nothing. Why would you? Benethir is a hero, he can handle a measly dragon. You shoot him a smile.
+
+#Benethir
+/Confident
+Onward, sprite!
+
+#AddAnnoyance
+/Default
+-1
+
+#GoTo
+/Default
+act_5.txt

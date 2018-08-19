@@ -1,0 +1,9 @@
+#Narrator
+/Default
+More fire begins to gather in Molog's mouth. Benethir is so completely focused on the dragon's face he doesn't see the dragons massive claws.
+
+#Prompt
+/Warn Benethir about the surprise attack
+act_7a_warned.txt
+/Do nothing
+act_7a_unwarned.txt

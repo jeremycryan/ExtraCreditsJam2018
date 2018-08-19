@@ -1,0 +1,33 @@
+#Narrator
+/Default
+After a tense moment, the tail slithers deeper into the tunnels. The two of you were probably unnoticed as you continue toward the heart of Burning Mountain.
+
+#Dragon
+/Shadow
+WHO DARES ENTER THE DOMAIN OF MOLOG THE MIGHTY?
+
+#Narrator
+/Default
+Maybe you weren't as stealthy as you thought.
+
+#Benethir
+/Confident
+It is I! Benethir the mighty warrior! You threaten my home and for that you shall be slain!
+
+#Dragon
+/Default
+I Molog, threaten your home!? Your rumors mean nothing, knight. I know your kind, you are here for nothing but your own glory. Leave while you have the chance, puny human, those who trespass in my domain do not survive.
+
+#Benethir
+/Angry
+Your presence alone threatens a great many villages, dragon. On behalf of the villagers and in the name of my guild, I'll remove threats like you from the world!
+
+#Narrator
+/Default
+As Benethir talks, fire gathers in the dragon's mouth.
+
+#Prompt
+/Tell Benethir!
+act_6_warned.txt
+/do nothing
+act_6_unwarned.txt

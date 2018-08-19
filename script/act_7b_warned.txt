@@ -1,0 +1,8 @@
+#Narrator
+/Default
+Spurred on by your warning, Benethir moves before the dragon can react. He launches himself across the cavern with a mighty leap. His sword sinks into Molog's outstretched neck.
+From there he makes short work of the dragon.
+
+#GoTo
+/Default
+act_7_journey_home.txt

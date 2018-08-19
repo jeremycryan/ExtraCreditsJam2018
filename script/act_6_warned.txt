@@ -1,0 +1,27 @@
+#Sprite
+/Alarmed
+Look out!
+
+#Dragon
+/Fire
+Molog opens his massive jaws and scorching fire jets from his mouth.
+
+#Narrator
+/Default
+To your surprise, Benethir drops to the ground and remains unharmed.
+
+#Benethir
+/Calm
+Ha! You missed, foolish lizard!
+
+#Narrator
+/Default
+You notice that, although the walls are scorched, the cave floor is untouched. Odd.
+
+#AddAnnoyance
+/Default
+-1
+
+#GoTo
+/Default
+act_6_bridge.txt

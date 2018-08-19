@@ -1,0 +1,23 @@
+#Music
+/Default
+Heins
+
+#Narrator
+/Default
+You descend from the mountain with the dragon defeated.
+
+#Narrator
+/Default
+The journey down is quiet. At the bottom of the mountain, Benethir turns to you.
+
+#Benethir
+/Eager
+Heins will be glad to have you back.
+
+#Narrator
+/Default
+Your journey, it appears, is at its end.
+
+#GoTo
+/Default
+conclusion_bridge.txt

@@ -1,0 +1,27 @@
+#Narrator
+/Default
+The old man sees the warrior and throws his hands into the air.
+
+#Priest
+/Frightened
+Please don't hurt me!
+
+#Benethir
+/Default
+I wouldn't harm an old man like you! I only fight enemy soldiers! And bandits! And dragons. And the occasional raccoon that threatens the village... that is, I wish you no harm.
+
+#Priest
+/Default
+Oh you're a warrior? I thought you had that look about you. And a wounded one at that. Here, I have just the thing for you. Take this potion. May our kind lord keep his watch over you on your travels.
+
+#Benethir
+/Eager
+Thank you!
+
+#AddAnnoyance
+/Default
+-1
+
+#GoTo
+/Default
+act_4.txt

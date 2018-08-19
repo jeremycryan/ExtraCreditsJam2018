@@ -1,0 +1,29 @@
+#Hiens
+/Default
+Well, I expected as much.
+
+#Benethir
+/Calm
+The guild will want to know...
+
+#Hiens
+/Hands raised
+Go tell them then. I'm sure they'll all be very excited.
+/Default
+Now, get out of my shop I have a lot of work to do, and you're spoiling my concentration.
+
+#Benethir
+/Angry
+...
+
+#Narrator
+/Default
+And with that, Benethir turns and slams the door behind him.
+
+#Hiens
+/Default
+Yes… a new recipe. Less nightshade perhaps. And maybe a bat's ear.
+
+#End
+/Default
+end

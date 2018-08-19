@@ -1,0 +1,19 @@
+#Narrator
+/Default
+When the smoke clears you see Benethir slumped against the wall.
+
+#Benethir
+/Confident
+Your trickery cannot defeat me! Fight like a man, dragon!
+
+#Narrator
+/Default
+Benethir charges forward, invigorated in his fury.
+
+#AddAnnoyance
+/Default
+1.0
+
+#GoTo
+/Default
+act_7a_afterward.txt

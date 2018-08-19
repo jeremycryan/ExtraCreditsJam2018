@@ -1,19 +1,46 @@
+#Sprite
+/Default
+...
+
+#Benethir
+/Calm
+Huh?
+
 #Narrator
 /Default
 The first arrow whizzes toward the unprepared Benethir. It sinks deep into his shoulder. Enraged, he rushes forward and the second arrow lands harmlessly in the dirt behind him.
 
+#Bandit
+/Default
+Ye'd best drop yer gold and yer blade if you know what's best for yah.
 
 #Benethir
-/Default
+/Angry
 You'll pay for that!
+
+#Bandit
+/Default
+Gahhh...
+
+#Bandit
+/Default
+He took out Charlie, don't want to mess with im'... let's scram.
 
 #Narrator
 /Default
-The third and final bandit stands no chance against the warrior's ferocious blade. The archers, seeing what's become of their friend, flee while Benethir is distracted. Soon, the road falls quiet once more.
+Benethir makes short work of the first bandit he reached. The archers, seeing what's become of their friend, flee while Benethir is distracted. The road is quiet once more.
 
 #Benethir
+/Angry
+...
+
+#Sprite
 /Default
-[something rude]
+...
+
+#AddAnnoyance
+/Default
+1.0
 
 #GoTo
 /Default

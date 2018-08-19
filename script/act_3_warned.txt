@@ -1,0 +1,35 @@
+#Narrator
+/Default
+Nothing stops a warrior once he has spotted his foe. Benethir rips through the undergrowth and cuts down the man before he can so much as scream.
+
+#Benethir
+/Annoyed
+Huff, well that was easy. Wait a minute... a priestly robe, an easy fight?
+
+#Narrator
+/Default
+ It is not until the old man lies unmoving that Benethir realizes that this old man is no bandit, he is a priest gathering herbs in the woods.
+
+#Benethir
+/Angry
+Do you mean to tell me I knocked out this old man for no reason!?
+
+#Benethir
+/Annoyed
+You are a terrible guide, sir sprite.
+
+#Benethir
+/Default
+Well, no matter. This potion will be helpful for the both of us.
+
+#Narrator
+/Default
+Benethir leans over to wipe his sword off on the grass. He drains the potion in one gulp and drops the flask next to the priest’s body.
+
+#AddAnnoyance
+/Default
+1.0
+
+#GoTo
+/Default
+act_4.txt

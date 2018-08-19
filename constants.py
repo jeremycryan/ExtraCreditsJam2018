@@ -17,17 +17,23 @@ HERO_POSES = {"Default": "Knight-Default.png",
     "Annoyed": "Knight-Angry.png",
     "More annoyed": "Knight-Angry.png",
     "Defeated": "Knight-sad.png",
-    "Confident": "Knight-Confident.png"}
+    "Confident": "Knight-Confident.png",
+    "Calm": "Knight-calm.png",
+    "Frightened": "Knight-Angry.png"}
 
 WIZARD_POSES = {"Default": "Wizard-Default.png",
     "Touched": "Wizard-Touched.png",
-    "Hands raised": "Wizard-Hands Rasied.png",
+    "Hands Raised": "Wizard-Hands Rasied.png",
     "Busy": "Wizard-Busy.png",
     "Angry": "Wizard-Angry.png"}
 
-SPRITE_POSES = {"Default": "Fairy-Default.png"}
+SPRITE_POSES = {"Default": "Fairy-Default.png",
+    "Alarmed": "Fairy-Default.png"}
 
 NARRATOR_POSES = {"Default": "empty.png"}
+
+PRIEST_POSES = {"Default": "empty.png",
+    "Frightened": "empty.png"}
 
 BANDIT_POSES = {}
 
@@ -38,10 +44,12 @@ CHAR_DICT = {"Hiens": WIZARD_POSES,
     "Sprite": SPRITE_POSES,
     "Bandit": BANDIT_POSES,
     "Dragon": DRAGON_POSES,
-    "Narrator": NARRATOR_POSES}
+    "Narrator": NARRATOR_POSES,
+    "Priest": PRIEST_POSES}
 
 BACKGROUNDS = {"Intro": "workshop_placeholder.jpg",
-    "Act 2": "woodland_placeholder.jpg"}
+    "Act 2": "woodland_placeholder.jpg",
+    "Act 4": "workshop_placeholder.jpg"}
 
 #########################################################
 ################# WINDOW AND DISPLAY ####################
@@ -76,3 +84,4 @@ CHAR_POS = (160, 50)
 CHAR_FADE_IN_TIME = 0.5
 CHAR_FADE_IN_OFFSET = 50
 CHAR_RECT = (int(480*1.5), int(720*1.5))
+BLIP_PER = 0.05

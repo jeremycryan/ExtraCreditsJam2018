@@ -1,0 +1,21 @@
+#Hiens
+/Default
+It looks like my sprite provided some help after all! That's good. I'm proud.
+You look like you've gotten a little scorched there my friend; why don't I see to that before you inform the guild of your victory?
+
+#Benethir
+/Default
+Sure. Will you come with me on the next quest?
+
+#Hiens
+/Default
+Perhaps... but you have done well my friend, you don't need my help.
+
+#Narrator
+/Default
+Benethir nods, though he does not look wholly convinced.
+You listen as the two chat about their old adventures.
+
+#End
+/Default
+end

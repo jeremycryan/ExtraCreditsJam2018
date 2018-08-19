@@ -6,77 +6,85 @@ Act: Intro
 /Default
 Intro
 
-#Narrator
+#Music
 /Default
-...
-
-
-#Benethir
-/Default
-"Knock, knock"
-"Yo Hiens! Its me open the door."
-
-#Hiens
-/Default
-"Afternoon."
+Heins
 
 #Benethir
 /Default
-I got a mission from the guild. We gotta kill the dragon of burning mountain!
+Knock, knock!
+Yo Hiens!! Its me, open the door!
+
 
 #Hiens
 /Default
-Not me. I'm mid way through my studies and must focus. Can't you recruit someone else for this task?
+Hold your horses Benethir, I'm coming.
+Good afternoon.
 
-#AddAnnoyance
-/Default
--3.0
+#Benethir
+/Confident
+I got a mission from the guild. We're killing The Dragon of Burning Mountain.
+
+#Hiens
+/Busy
+You mean you're killing The Dragon of Burning Mountain. I am staying right here and studying.
 
 #Benethir
 /Annoyed
-Come on, Hiens, it's for the Guild.
-/More annoyed
-Hiens?
+Can't your books wait for once? Hiens?
+
+#Benethir
+/Annoyed
+It's for the guild, Heins.
+
+#Hiens
+/Default
+...
+
+#Benethir
 /Defeated
-Okay Hiens, I'll be honest. I could handle this mission solo style, but you are my friend, it'll be that much more enjoyable to go on this mission with someone I trust. Put that spoon away and let's go.
+Fine Hiens, have it your way. I could easily handle this myself.
+I just thought it would be fun to go with a friend.
+/Default
+It's always better to adventure with someone you trust!
 
 #Hiens
 /Touched
 Oh... I'm touched.
+
+#Hiens
 /Default
-But I won't go.
+But I'm sorry, I can't go.
 
 #Benethir
 /Angry
-Fine Hiens, be that way!
+Fine! Whatever. I'll be on my way then!
 
 #Hiens
-/Hands raised
+/Hands Raised
 Hold on, hold on. Let me get you something.
+
+#Hiens
 /Default
-Take this with you. I'm far to busy to assist in person, but this tiny creature can serve as a guide. This sprite can provide useful tips and can aid you in variety of minor ways.
+Take this with you. I'm far too busy to assist in person but this tiny creature can serve as a guide. This sprite will provide useful tips and aid you in a variety of ways.
 
 #Sprite
 /Default
 ...
 
-#AddAnnoyance
-/Default
-2.0
+#Benethir
+/Annoyed
+It can't even wield a sword, how is this supposed to help me?
+
+#Hiens
+/Busy
+Hmmm... Perhaps it won't be of much help. But regardless, it at least will keep you company.
 
 #Benethir
 /Annoyed
-...
-
-#Hiens
-/Default
-To be honest, it might not be very helpful but at least it'll keep you company.
-
-#Benethir
-/Angry
-Err... Well thanks... I'll take this thing along with me, but when I'm in the grips of battle and this whatever you called it doesn't help, I'll be thinking of you.
+Uh, thanks Hiens... I'll take this thing with me, but when I'm in the middle of battle facing down foes without backup, I'll be thinking of you.
 /Eager
-Come little fellah, let's go.
+Come on then little fella, let's go slay a dragon.
 
 #GoTo
 /Default

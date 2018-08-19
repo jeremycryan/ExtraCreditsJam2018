@@ -1,0 +1,16 @@
+#Dragon
+/Fire
+!!!
+
+#Narrator
+/Default
+Caught unaware, Benethir is unable to dodge the next gout of flame. It collides into his chest, knocking him back against the wall. Undeterred, the warrior brandishes his sword.
+What follows is a long fight. With your help, Benethir eventually triumphs over the mighty Molog.
+
+#Narrator
+/Default
+You and Benethir exit the cave, injured but confident. The villagers can rest safely knowing you have protected them.
+
+#GoTo
+/Default
+act_7_journey_home.txt

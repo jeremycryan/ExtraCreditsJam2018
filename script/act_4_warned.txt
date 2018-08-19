@@ -1,0 +1,19 @@
+#Sprite
+/Alarmed
+Don't go!
+
+#Benethir
+/Annoyed
+You want me to abandon my quest? You're just as bad as him! You're cowards! The both of you!
+
+#Narrator
+/Default
+Benethir walks on. After a moment, you follow.
+
+#AddAnnoyance
+/Default
+1.0
+
+#GoTo
+/Default
+act_5.txt
