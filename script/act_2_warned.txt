@@ -1,6 +1,14 @@
+#Music
+/Default
+Silence
+
 #Sprite
 /Alarmed
 Look out!
+
+#Music
+/Default
+Battle
 
 #Benethir
 /Angry
@@ -13,7 +21,7 @@ Benethir grins as he advances onto the third bandit, the one who had been unluck
 
 #Bandit
 /Default
-Blimey, The runt done caught our arrows!
+Blimey, the runt done caught our arrows!
 
 #Benethir
 /Confident

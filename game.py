@@ -33,8 +33,15 @@ class Game(object):
     def load_sounds(self):
         self.heins = pygame.mixer.Sound(file="sounds/hiens_theme.wav")
         self.battle = pygame.mixer.Sound(file="sounds/heat_of_battle.wav")
+        self.shadow = pygame.mixer.Sound(file="sounds/shadow.wav")
+        self.silence = pygame.mixer.Sound("1234")
+        self.silence.set_volume(0)
+        self.shadow.set_volume(0.3)
+        self.battle.set_volume(0.7)
         self.music = {"Heins": self.heins,
-            "Battle": self.battle}
+            "Battle": self.battle,
+            "Shadow": self.shadow,
+            "Silence": self.silence}
 
         self.blip = pygame.mixer.Sound("sounds/blip.wav")
         self.blip.set_volume(0.17)
@@ -163,7 +170,10 @@ class Game(object):
                 image_path = pose_dict[pose]
                 try:
                     new_img = pygame.image.load("images/"+image_path)
-                    new_img = pygame.transform.scale(new_img, CHAR_RECT)
+                    if not "Dragon" in image_path:
+                        new_img = pygame.transform.scale(new_img, CHAR_RECT)
+                    else:
+                        new_img = pygame.transform.scale(new_img, (900, 900))
                 except:
                     new_img = pygame.Surface(CHAR_RECT)
                     new_img.fill((200, 200, 90))
@@ -232,7 +242,7 @@ class Game(object):
                     script.go_to_next()
                 if line.char == "Music":
                     if self.music_playing:
-                        self.music_playing.fadeout(2000)
+                        self.music_playing.fadeout(1000)
                     self.music[line.text].play(loops=-1)
                     self.music_playing = self.music[line.text]
                     script.go_to_next()
@@ -433,7 +443,10 @@ class Line(object):
         img.set_alpha(self.char_opacity)
 
         bounce_off = self.bounce_mag * sin(time()*self.bounce_freq)
-        screen.blit(img, (CHAR_POS[0], CHAR_POS[1] + self.char_yoff + bounce_off))
+        if self.char != "Dragon":
+            screen.blit(img, (CHAR_POS[0], CHAR_POS[1] + self.char_yoff + bounce_off))
+        else:
+            screen.blit(img, (DRAG_POS[0], DRAG_POS[1] + self.char_yoff + bounce_off))
 
     def draw_text_box(self, screen):
 

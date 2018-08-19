@@ -2,6 +2,10 @@
 /Default
 Act 4
 
+#Music
+/Default
+Shadow
+
 #Narrator
 /Default
 Out of the forest at last, you have arrived to the base of Burning Mountain. The air is hot and sticky and every flap of your wings takes effort.

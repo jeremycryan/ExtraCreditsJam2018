@@ -1,4 +1,8 @@
-﻿#Narrator
+#Music
+/Default
+Battle
+
+#Narrator
 /Default
 Nothing stops a warrior once he has spotted his foe. Benethir rips through the undergrowth and cuts down the man before he can so much as scream.
 
@@ -9,6 +13,10 @@ Huff, well that was easy. Wait a minute... a priestly robe, an easy fight?
 #Narrator
 /Default
  It is not until the old man lies unmoving that Benethir realizes that this old man is no bandit, he is a priest gathering herbs in the woods.
+
+#Priest
+/Knocked out
+...
 
 #Benethir
 /Angry

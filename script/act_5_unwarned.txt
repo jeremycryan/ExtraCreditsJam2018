@@ -11,9 +11,8 @@ There's a huge noise and the cavern shakes, causing stones to fall from the ceil
 What was that?
 
 #Narrator
-
 /Default
-Benethir's question is answered a moment later when a giant red tail slams into the wall.
+Benethir's question is answered a moment later when a giant green tail slams into the wall.
 
 #Benethir
 /Frightened

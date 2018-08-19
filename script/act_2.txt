@@ -6,7 +6,7 @@ Act 2
 
 #Music
 /Default
-Battle
+Shadow
 
 #Narrator
 /Default

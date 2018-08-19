@@ -1,6 +1,14 @@
+#Music
+/Default
+Silence
+
 #Sprite
 /Default
 ...
+
+#Music
+/Default
+Battle
 
 #Benethir
 /Calm

@@ -1,10 +1,14 @@
+#Music
+/Default
+Silence
+
 #Dragon
 /Default
 ...
 
 #Narrator
 /Default
-The dragon hesitates
+The dragon hesitates.
 
 #Dragon
 /Default
@@ -18,10 +22,14 @@ Fire spouts into the sky and burns where it falls! How is that not your fault?
 #Dragon
 /Calm
 I see. This mountain has been erupting as of late, but my presence on this mountain is not to blame.
-
+ 
 #Benethir
 /Default
 ... That must mean the fire comes from the mountain itself.
+
+#Music
+/Default
+Heins
 
 #Dragon
 /Default
@@ -36,7 +44,7 @@ I will leave. Goodbye brave warrior.
 #Narrator
 /Default
 Benethir stands back and watches as Molog flaps his wings and rises into the air.
-Soon, the huge dragon is nothing but a red dot in the sky.
+Soon, the huge dragon is nothing but a green dot in the sky.
 
 #AddAnnoyance
 /Default

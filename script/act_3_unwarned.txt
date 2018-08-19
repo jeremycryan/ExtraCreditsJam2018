@@ -6,13 +6,23 @@ The old man sees the warrior and throws his hands into the air.
 /Frightened
 Please don't hurt me!
 
+#Music
+/Default
+Silence
+
 #Benethir
 /Default
 I wouldn't harm an old man like you! I only fight enemy soldiers! And bandits! And dragons. And the occasional raccoon that threatens the village... that is, I wish you no harm.
 
+#Music
+/Default
+Heins
+
 #Priest
 /Default
-Oh you're a warrior? I thought you had that look about you. And a wounded one at that. Here, I have just the thing for you. Take this potion. May our kind lord keep his watch over you on your travels.
+Oh you're a warrior? I thought you had that look about you. And a wounded one at that.
+/Kind
+Here, I have just the thing for you. Take this potion. May our kind lord keep his watch over you on your travels.
 
 #Benethir
 /Eager

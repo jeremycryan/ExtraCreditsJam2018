@@ -2,10 +2,14 @@
 /Default
 Act 2
 
+#Music
+/Default
+Shadow
+
 #Narrator
 /Default
 As you travel, the bushes become more numerous, and the trees taller and thicker. Soon the path has faded and you find yourself traversing thick foliage, which obscures your vision.
-You are not alone, someone else is traveling this paths. Between the undergrowth and peering through the leaves you spot a man that is not a bandit at all, but rather an elderly priest.
+You are not alone, someone else is traveling these paths. Between the undergrowth and peering through the leaves you spot a man that is not a bandit at all, but rather an elderly priest.
 
 #Prompt
 /Tell Benethir to attack!

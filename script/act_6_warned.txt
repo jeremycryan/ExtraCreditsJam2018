@@ -1,9 +1,21 @@
+#Music
+/Default
+Silence
+
 #Sprite
 /Alarmed
 Look out!
 
+#Music
+/Default
+Battle
+
 #Dragon
 /Fire
+!!!
+
+#Narrator
+/Default
 Molog opens his massive jaws and scorching fire jets from his mouth.
 
 #Narrator

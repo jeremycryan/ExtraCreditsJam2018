@@ -13,7 +13,7 @@ Heins
 #Benethir
 /Default
 Knock, knock!
-Yo Hiens!! Its me, open the door!
+Yo Hiens!! It's me, open the door!
 
 
 #Hiens

@@ -32,12 +32,18 @@ SPRITE_POSES = {"Default": "Fairy-Default.png",
 
 NARRATOR_POSES = {"Default": "empty.png"}
 
-PRIEST_POSES = {"Default": "empty.png",
-    "Frightened": "empty.png"}
+PRIEST_POSES = {"Default": "Priest-Default.png",
+    "Frightened": "Priest-Frightened.png",
+    "Knocked out": "Priest-KnockedOUT.png",
+    "Kind": "Priest-Kind.png"}
 
-BANDIT_POSES = {}
+BANDIT_POSES = {"Default": "Bandit-Default.png"}
 
-DRAGON_POSES = {}
+DRAGON_POSES = {"Default": "Dragon-Default.png",
+    "Angry": "Dragon-Angry.png",
+    "Calm": "Dragon-Calm.png",
+    "Shadow": "Dragon-Default.png",
+    "Fire": "Dragon-Fire.png"}
 
 CHAR_DICT = {"Hiens": WIZARD_POSES,
     "Benethir": HERO_POSES,
@@ -84,4 +90,5 @@ CHAR_POS = (160, 50)
 CHAR_FADE_IN_TIME = 0.5
 CHAR_FADE_IN_OFFSET = 50
 CHAR_RECT = (int(480*1.5), int(720*1.5))
+DRAG_POS = GAME_SIZE[0] - 900, 0
 BLIP_PER = 0.05
