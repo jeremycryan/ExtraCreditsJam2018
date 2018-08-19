@@ -1,4 +1,4 @@
-#Hiens
+﻿#Hiens
 /Default
 Well, I expected as much.
 
@@ -22,7 +22,11 @@ And with that, Benethir turns and slams the door behind him.
 
 #Hiens
 /Default
-Yes… a new recipe. Less nightshade perhaps. And maybe a bat's ear.
+Yes... a new recipe. Less nightshade perhaps. And maybe a bat's ear.
+
+#Narrator
+/Default
+He raises his hand and snaps. You are gone. 
 
 #End
 /Default
