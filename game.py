@@ -270,6 +270,12 @@ class Game(object):
 
             pygame.event.pump()
             pressed = pygame.event.get(pygame.KEYDOWN)
+            exit_event = pygame.event.get(pygame.QUIT)
+            if len(exit_event):
+                pygame.display.quit()
+                pygame.quit()
+                sys.exit()
+            pygame.event.clear()
             if len(pressed):
                 keys = [item.key for item in pressed]
                 if 27 in keys:
