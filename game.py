@@ -264,7 +264,7 @@ class Game(object):
 
             self.temp_lock = False
             if line.char == "Prompt":
-                if line.prop_done() < 0.25:
+                if line.prop_done() < 0.15:
                     self.temp_lock = True
 
 
@@ -272,9 +272,7 @@ class Game(object):
             pressed = pygame.event.get(pygame.KEYDOWN)
             exit_event = pygame.event.get(pygame.QUIT)
             if len(exit_event):
-                pygame.display.quit()
-                pygame.quit()
-                sys.exit()
+                self.close_game()
             pygame.event.clear()
             if len(pressed):
                 keys = [item.key for item in pressed]
