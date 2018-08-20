@@ -1,5 +1,5 @@
 #Hiens
-/default
+/Default
 Fantastic! That is wonderful. I'll need to examine this link between dragons and related fiery activity.
 Well, whatever the case, the dragon is gone you should tell the guild the good news!
 
@@ -21,7 +21,7 @@ That's a good idea, old friend!
 All of my ideas are good.
 
 #Hiens
-/Hands raised
+/Hands Raised
 Yes...
 Let's quit while we're ahead, shall we?
 

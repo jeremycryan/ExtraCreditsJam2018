@@ -3,5 +3,5 @@
 act_6_annoyed.txt
 /-4
 act_6_less_annoyed.txt
-/-5
+/-10
 act_6_calm.txt

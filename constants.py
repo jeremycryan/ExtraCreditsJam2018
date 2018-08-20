@@ -8,7 +8,7 @@ import pygame
 
 GAME_TITLE = "Burning Mountain"
 
-DO_NOT_SHOW_NAME = ["Scene", "Prompt", "Narrator"]
+DO_NOT_SHOW_NAME = ["Scene", "Prompt", "Narrator", "Burning Mountain"]
 
 HERO_POSES = {"Default": "Knight-Default.png",
     "Angry": "Knight-Angry.png",
@@ -28,7 +28,7 @@ WIZARD_POSES = {"Default": "Wizard-Default.png",
     "Angry": "Wizard-Angry.png"}
 
 SPRITE_POSES = {"Default": "Fairy-Default.png",
-    "Alarmed": "Fairy-Default.png"}
+    "Alarmed": "Fairy-Alarmed.png"}
 
 NARRATOR_POSES = {"Default": "empty.png"}
 
@@ -59,7 +59,8 @@ CHAR_DICT = {"Hiens": WIZARD_POSES,
 BACKGROUNDS = {"Workshop": "workshop.png",
     "Forest": "forest_road.png",
     "Mountain": "mountain.png",
-    "Cavern": "cavern.png"}
+    "Cavern": "cavern.png",
+    "Title": "title.png"}
 
 #########################################################
 ################# WINDOW AND DISPLAY ####################

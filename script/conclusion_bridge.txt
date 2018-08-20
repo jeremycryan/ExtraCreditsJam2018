@@ -49,5 +49,5 @@ ending_1.txt
 ending_2.txt
 /-4
 ending_3.txt
-/-5
+/-10
 ending_4.txt

@@ -1,6 +1,6 @@
 #Scene
 /Default
-Mountain
+Title
 
 #Music
 /Default
