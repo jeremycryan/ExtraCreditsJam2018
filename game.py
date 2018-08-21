@@ -95,6 +95,10 @@ class Game(object):
                     selection = max(selection, 0)
                 if 13 in keys:
                     break
+            exit_event = pygame.event.get(pygame.QUIT)
+            if len(exit_event):
+                self.close_game()
+            pygame.event.clear()
 
 
             ose = []
@@ -289,7 +293,10 @@ class Game(object):
                             self.start_file = line.get_link(0)
                             script = self.parse_script()
                             continue
-                        script.go_to_next()
+                        if line.all_characters_shown():
+                            script.go_to_next()
+                        else:
+                            line.time += 999
 
             self.screen.blit(background, (0, 0))
 
@@ -375,6 +382,11 @@ class Line(object):
 
         self.time_since_blip = 5
         self.sound = sound
+
+    def all_characters_shown(self):
+        if len(self.text) < self.time * self.chars_per_second:
+            return True
+        return False
 
     def set_options(self, options):
         self.options = options

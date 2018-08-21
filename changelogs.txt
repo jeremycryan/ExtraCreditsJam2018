@@ -1,0 +1,10 @@
+The following changes were made after this game was submitted to the 2018 Extra Credits game design jam.
+
+8.20.2018
+- Fixed a bug where Hiens turned invisible in certain endings
+- Fixed a bug where the game would stop responding to keypresses after being open for long enough
+- Fixed a bug that allowed players to skip through dialogue during the scene fading transition
+- Fixed a bug that would cause game crash on certain endings
+
+- Added the ability to close windows with the red "X" button
+- Made it so pressing Enter before all text is visible displays all text for that line, rather than skipping to the next one
