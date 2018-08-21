@@ -266,6 +266,8 @@ class Game(object):
             if line.char == "Prompt":
                 if line.prop_done() < 0.15:
                     self.temp_lock = True
+            if cur_fade != target_fade:
+                self.temp_lock = True
 
 
             pygame.event.pump()
@@ -281,7 +283,7 @@ class Game(object):
                 if 292 in keys:
                     pygame.display.toggle_fullscreen()
 
-                if not self.lockout and not self.temp_lock:
+                if (not self.lockout) and (not self.temp_lock):
                     if 13 in keys or 275 in keys:
                         if line.is_prompt:
                             self.start_file = line.get_link(0)

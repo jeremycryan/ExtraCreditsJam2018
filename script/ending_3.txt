@@ -16,6 +16,6 @@ Perhaps... but you have done well my friend, you don't need my help.
 Benethir nods, though he does not look wholly convinced.
 You listen as the two chat about their old adventures.
 
-#End
+#GoTo
 /Default
-end
+start.txt
